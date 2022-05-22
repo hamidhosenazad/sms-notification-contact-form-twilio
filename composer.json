@@ -1,0 +1,22 @@
+{
+    "name": "hamidazad/wp-plugin-boilerplate",
+    "description": "Boilerplate to kick start WordPress plugin development",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Hamid Azad",
+            "email": "hamidxazad@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twilio/sdk": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+		"wP\\Plugin\\Boilerplate\\":"includes/"
+        },
+        "files":["includes/functions.php"]
+    }
+}
