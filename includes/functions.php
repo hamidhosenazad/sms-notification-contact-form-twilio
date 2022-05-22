@@ -166,7 +166,7 @@ add_action(
 		if ( isset( $_POST['_wpcf7'] ) ) {
 			$form_id   = sanitize_text_field( wp_unslash( $_POST['_wpcf7'] ) );
 			$form_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}sncfwt_contact_forms WHERE form_id = %d", $form_id ) );
-			if ( 'Active' === $form_info && $form_info->sms_status ) {
+			if ( 'Active' === $form_info->sms_status ) {
 				$post_keys = array_keys( $_POST );
 				if ( isset( $_SERVER['HTTP_HOST'] ) ) {
 					$url = 'http://' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) );
