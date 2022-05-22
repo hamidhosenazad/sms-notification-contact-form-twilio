@@ -3,7 +3,7 @@
  * Core plugin file
  *
  * @since      1.0
- * @package    sncfwt
+ * @package    sms-notification-contact-form-with-twilio
  * @author     Hamid Azad
  */
 
@@ -34,12 +34,12 @@ class Menu {
 	 * @return void
 	 */
 	public function sncfwt_admin_menu() {
-		$parent_slug = 'sncfwt';
+		$parent_slug = 'sms-notification-contact-form-with-twilio';
 		$capability  = 'manage_options';
 
-		add_menu_page( esc_html__( 'Sms Notifacation', 'sncfwt' ), esc_html__( 'Sms Notifacation', 'sncfwt' ), $capability, $parent_slug, array( $this, 'sncfwt_page' ), 'dashicons-media-text' );
-		add_submenu_page( $parent_slug, esc_html__( 'Main Page', 'sncfwt' ), esc_html__( 'Main Page', 'sncfwt' ), $capability, $parent_slug, array( $this, 'sncfwt_page' ) );
-		add_submenu_page( $parent_slug, esc_html__( 'Settings', 'sncfwt' ), esc_html__( 'Settings', 'sncfwt' ), $capability, 'sncfwt-settings', array( $this, 'sncfwt_settings_page' ) );
+		add_menu_page( esc_html__( 'Sms Notifacation', 'sms-notification-contact-form-with-twilio' ), esc_html__( 'Sms Notifacation', 'sms-notification-contact-form-with-twilio' ), $capability, $parent_slug, array( $this, 'sncfwt_page' ), 'dashicons-media-text' );
+		add_submenu_page( $parent_slug, esc_html__( 'Main Page', 'sms-notification-contact-form-with-twilio' ), esc_html__( 'Main Page', 'sms-notification-contact-form-with-twilio' ), $capability, $parent_slug, array( $this, 'sncfwt_page' ) );
+		add_submenu_page( $parent_slug, esc_html__( 'Settings', 'sms-notification-contact-form-with-twilio' ), esc_html__( 'Settings', 'sms-notification-contact-form-with-twilio' ), $capability, 'sms-notification-contact-form-with-twilio-settings', array( $this, 'sncfwt_settings_page' ) );
 	}
 
 	/**

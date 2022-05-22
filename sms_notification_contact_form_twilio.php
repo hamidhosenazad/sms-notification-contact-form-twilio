@@ -2,9 +2,9 @@
 /**
  * Sms notification contact form  with twilio
  *
- * @package     sncfwt
+ * @package     sms-notification-contact-form-with-twilio
  * @author      Hamid Azad
- * @copyright   2021 Hamid Azad
+ * @copyright   2022 Hamid Azad
  * @license     GPL-2.0-or-later
  *
  * @wordpress-plugin
@@ -14,7 +14,7 @@
  * Version:     1.0.0
  * Author:      Hamid Azad
  * Author URI:  https://github.com/hamidhosenazad
- * Text Domain: sncfwt
+ * Text Domain: sms-notification-contact-form-with-twilio
  * License:     GPL v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -43,5 +43,5 @@ add_action( 'plugins_loaded', 'sncfwt_check_contact_form_active' );
  */
 function sncfwt_requires_contact_form() {
 	$class = 'notice notice-error';
-	printf( '<div class="%1$s"><p style="' . esc_attr( 'display: inline-block;' ) . '">%2$s</p> <a href="' . esc_url( 'https://wordpress.org/plugins/contact-form-7/' ) . '" target="' . esc_attr( '_blank' ) . '">Install and Activate Contact Form 7</a>.</div>', esc_attr( $class ), esc_html__( 'Sms notification contact form  with twilio plugin requires contact form to be active.', 'sncfwt' ) );
+	printf( '<div class="%1$s"><p style="' . esc_attr( 'display: inline-block;' ) . '">%2$s</p> <a href="' . esc_url( 'https://wordpress.org/plugins/contact-form-7/' ) . '" target="' . esc_attr( '_blank' ) . '">Install and Activate Contact Form 7</a>.</div>', esc_attr( $class ), esc_html__( 'Sms notification contact form  with twilio plugin requires contact form to be active.', 'sms-notification-contact-form-with-twilio' ) );
 }

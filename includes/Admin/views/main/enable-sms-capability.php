@@ -3,7 +3,7 @@
  * Core plugin file
  *
  * @since      1.0
- * @package    sncfwt
+ * @package    sms-notification-contact-form-with-twilio
  * @author     Hamid Azad
  */
 
@@ -25,13 +25,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<tbody>
 				<tr class="row">
 					<th scope="row">
-						<label for="form-title"><?php echo esc_html__( 'Form Title', 'sncfwt' ); ?> </label>
+						<label for="form-title"><?php echo esc_html__( 'Form Title', 'sms-notification-contact-form-with-twilio' ); ?> </label>
 					</th>
 					<th scope="row">
-						<label for="sms-status"><?php echo esc_html__( 'SMS Status', 'sncfwt' ); ?> </label>
+						<label for="sms-status"><?php echo esc_html__( 'SMS Status', 'sms-notification-contact-form-with-twilio' ); ?> </label>
 					</th>
 					<th scope="row">
-						<label for="receiver_phone"><?php echo esc_html__( 'Receiver Phone', 'sncfwt' ); ?> </label>
+						<label for="receiver_phone"><?php echo esc_html__( 'Receiver Phone', 'sms-notification-contact-form-with-twilio' ); ?> </label>
 					</th>				
 				</tr>
 				<tr class="row">
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php
 								if ( ! empty( $this->errors['receiver_phone'] ) ) {
 									if ( $this->errors['form_id'] == $value['form_id'] ) {
-										echo '<span class="notice notice-error">' . esc_html__( 'SMS reciever phone number cannot be empty ', 'sncfwt' ) . '</span>';
+										echo '<span class="notice notice-error">' . esc_html__( 'SMS reciever phone number cannot be empty ', 'sms-notification-contact-form-with-twilio' ) . '</span>';
 									}
 								}
 								?>
@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<input type="hidden" name="form_id" value="<?php echo esc_html( ( $value['form_id'] ) ); ?>"/>
 						<input type="hidden" name="form_title" value="<?php echo esc_html( ( $value['form_title'] ) ); ?>"/>
 								<?php wp_nonce_field( 'sms-capability' ); ?>
-								<?php submit_button( esc_html__( 'Submit', 'sncfwt' ), 'primary', 'submit_sms_capability' ); ?>
+								<?php submit_button( esc_html__( 'Submit', 'sms-notification-contact-form-with-twilio' ), 'primary', 'submit_sms_capability' ); ?>
 					</td>
 				</tr>
 			</tbody>

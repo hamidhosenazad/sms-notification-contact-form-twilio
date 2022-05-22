@@ -3,7 +3,7 @@
  * Core plugin file
  *
  * @since      1.0
- * @package    sncfwt
+ * @package    sms-notification-contact-form-with-twilio
  * @author     Hamid Azad
  */
 
@@ -17,6 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="wrap">
 	<div class="notice notice-error"> 
-		<p><strong><?php echo esc_html__( 'There are no forms', 'sncfwt' ); ?> </strong></p>
+		<p><strong><?php echo esc_html__( 'There are no forms', 'sms-notification-contact-form-with-twilio' ); ?> </strong></p>
 	</div>
 </div>

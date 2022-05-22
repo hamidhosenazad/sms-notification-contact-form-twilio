@@ -4,7 +4,7 @@
  * Core plugin file
  *
  * @since      1.0
- * @package    sncfwt
+ * @package    sms-notification-contact-form-with-twilio
  * @author     Hamid Azad
  */
 
