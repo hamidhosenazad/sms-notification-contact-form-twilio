@@ -62,7 +62,7 @@ function sncfwt_get_contact_forms_list() {
  *
  * @param  array $args as data.
  *
- * @return int|WP_Error
+ * @return void
  */
 function sncfwt_insert_twilio_credentials( $args = array() ) {
 	global $wpdb;
@@ -99,7 +99,7 @@ function sncfwt_insert_twilio_credentials( $args = array() ) {
 /**
  * Display form list
  *
- * @param $form_id.
+ * @param string $form_id as data.
  * @return array
  */
 function sncfwt_display_contact_forms_list( $form_id ) {
@@ -163,30 +163,39 @@ add_action(
 	'wpcf7_before_send_mail',
 	function( $contact_form, &$abort, $submission ) {
 		global $wpdb;
-		$form_id   = $_POST['_wpcf7'];
-		$form_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}sncfwt_contact_forms WHERE form_id = %d", $form_id ) );
-		if ( $form_info && $form_info->sms_status == 'Active' ) {
-			$post_keys = array_keys( $_POST );
-			$url       = 'http://' . $_SERVER['HTTP_HOST'];
-			$message   = "This text is from $url $form_info->form_title form" . PHP_EOL;
-			for ( $i = 6;$i < count( $_POST );$i++ ) {
-				$message .= $post_keys[ $i ] . '=' . $_POST[ $post_keys[ $i ] ] . PHP_EOL;
-			}
-			$twilio_credentials = sncfwt_get_twilio_credentials( 1 );
-			$twilio_sid         = $twilio_credentials->twilio_sid;
-			$twilio_auth        = $twilio_credentials->twilio_auth;
-			$twilio_phone       = $twilio_credentials->twilio_phone;
-			$twilio             = new Client( $twilio_sid, $twilio_auth );
-			try {
-				$twilio->messages->create(
-					$form_info->receiver_phone,
-					array(
-						'body' => $message,
-						'from' => $twilio_phone,
-					)
-				);
-			} catch ( TwilioException $e ) {
-				mail( get_option( 'admin_email' ), 'Twilio Error', $e->getMessage() );
+		if ( isset( $_POST['_wpcf7'] ) ) {
+			$form_id   = sanitize_text_field( wp_unslash( $_POST['_wpcf7'] ) );
+			$form_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}sncfwt_contact_forms WHERE form_id = %d", $form_id ) );
+			if ( 'Active' === $form_info && $form_info->sms_status ) {
+				$post_keys = array_keys( $_POST );
+				if ( isset( $_SERVER['HTTP_HOST'] ) ) {
+					$url = 'http://' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) );
+				} else {
+					$url = '';
+				}
+				$message      = "This text is from $url $form_info->form_title form" . PHP_EOL;
+				$sncfwt_count_keys = count( $_POST );
+				for ( $i = 6;$i < $sncfwt_count_keys;$i++ ) {
+					if ( isset( $_POST[ $post_keys[ $i ] ] ) ) {
+						$message .= $post_keys[ $i ] . '=' . sanitize_text_field( wp_unslash( $_POST[ $post_keys[ $i ] ] ) ) . PHP_EOL;
+					}
+				}
+				$twilio_credentials = sncfwt_get_twilio_credentials( 1 );
+				$twilio_sid         = $twilio_credentials->twilio_sid;
+				$twilio_auth        = $twilio_credentials->twilio_auth;
+				$twilio_phone       = $twilio_credentials->twilio_phone;
+				$twilio             = new Client( $twilio_sid, $twilio_auth );
+				try {
+					$twilio->messages->create(
+						$form_info->receiver_phone,
+						array(
+							'body' => $message,
+							'from' => $twilio_phone,
+						)
+					);
+				} catch ( TwilioException $e ) {
+					mail( get_option( 'admin_email' ), 'Twilio Error', $e->getMessage() );
+				}
 			}
 		}
 	},
@@ -195,8 +204,16 @@ add_action(
 );
 
 add_action( 'before_delete_post', 'my_func', 99, 2 );
+
+/**
+ * Delete contact form list from the DB.
+ *
+ * @param string $postid as data.
+ *
+ * @retrun boolean
+ */
 function my_func( $postid ) {
-	// We check if the post type isn't ours and just return
+	// We check if the post type isn't ours and just return.
 	if ( get_post_type( $postid ) != 'wpcf7_contact_form' ) {
 		return;
 	}
