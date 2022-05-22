@@ -7,7 +7,7 @@
  * @author     Hamid Azad
  */
 
-namespace wP\Plugin\Boilerplate;
+namespace Sncfwt\Plugin\Includes;
 
 /**
  * Installer class

@@ -7,7 +7,7 @@
  * @author     Hamid Azad
  */
 
-namespace wP\Plugin\Boilerplate\Admin;
+namespace Sncfwt\Plugin\Includes\Admin;
 
 /*
  * If this file is called directly, abort.

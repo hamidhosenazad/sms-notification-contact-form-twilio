@@ -11,24 +11,24 @@ class ComposerStaticInit2bc615eb00f6e55f518decdc72dd6824
     );
 
     public static $prefixLengthsPsr4 = array (
-        'w' => 
-        array (
-            'wP\\Plugin\\Boilerplate\\' => 22,
-        ),
         'T' => 
         array (
             'Twilio\\' => 7,
         ),
+        'S' => 
+        array (
+            'Sncfwt\\Plugin\\Includes\\' => 23,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'wP\\Plugin\\Boilerplate\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/includes',
-        ),
         'Twilio\\' => 
         array (
             0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
+        ),
+        'Sncfwt\\Plugin\\Includes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/includes',
         ),
     );
 

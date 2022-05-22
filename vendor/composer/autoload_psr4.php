@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'wP\\Plugin\\Boilerplate\\' => array($baseDir . '/includes'),
     'Twilio\\' => array($vendorDir . '/twilio/sdk/src/Twilio'),
+    'Sncfwt\\Plugin\\Includes\\' => array($baseDir . '/includes'),
 );

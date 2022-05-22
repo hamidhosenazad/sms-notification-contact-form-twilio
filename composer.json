@@ -1,6 +1,6 @@
 {
     "name": "hamidazad/wp-plugin-boilerplate",
-    "description": "Boilerplate to kick start WordPress plugin development",
+    "description": "Send sms notification upon Contact form 7 submit ",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-		"wP\\Plugin\\Boilerplate\\":"includes/"
+		"Sncfwt\\Plugin\\Includes\\":"includes/"
         },
         "files":["includes/functions.php"]
     }

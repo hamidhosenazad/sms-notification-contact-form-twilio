@@ -72,8 +72,8 @@ final class Sms_Notification_Contact_Form_Twilio {
 	 */
 	public function sncfwt_init_plugin() {
 		if ( is_admin() ) {
-			new wP\Plugin\Boilerplate\Admin();
-			new wP\Plugin\Boilerplate\Assets();
+			new Sncfwt\Plugin\Includes\Admin();
+			new Sncfwt\Plugin\Includes\Assets();
 		}
 
 	}
@@ -84,7 +84,7 @@ final class Sms_Notification_Contact_Form_Twilio {
 	 * @return void
 	 */
 	public function sncfwt_installer() {
-		$installer = new wP\Plugin\Boilerplate\Installer();
+		$installer = new Sncfwt\Plugin\Includes\Installer();
 		$installer->sncfwt_run();
 		$installed = get_option( 'sncfwt_installed' );
 		if ( ! $installed ) {
