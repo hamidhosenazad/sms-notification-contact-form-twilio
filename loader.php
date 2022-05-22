@@ -26,7 +26,7 @@ final class Sms_Notification_Contact_Form_Twilio {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0';
+	const VERSION = '1.0.0';
 
 	/**
 	 * Class construcotr
