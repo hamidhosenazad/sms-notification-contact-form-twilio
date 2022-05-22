@@ -9,7 +9,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Sms notification contact form  with twilio
- * Plugin URI:  https://hamidazad/wp-plugin-boilerplate
+ * Plugin URI:  https://github.com/hamidhosenazad/sms-notification-contact-form-twilio
  * Description: Plugin to send sms notification on contact  form submission with twilio
  * Version:     1.0.0
  * Author:      Hamid Azad
