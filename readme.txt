@@ -1,8 +1,8 @@
 === Sms notification contact form  with twilio ===
 Contributors: Hamid Azad
 Tags: contact, form, contact form, sms, twilio,notification
-Requires at least: 5.7
-Tested up to: 5.9
+Requires at least: 6.0
+Tested up to: 6.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,5 @@ With the default configuration, this plugin, in itself, does not:
 
 == Screenshots ==
 
-1. https://usnsolutions.com/screenshots/main.png
-2. https://usnsolutions.com/screenshots/settings.png
-
+1. Settings Page
+2. Main Page
